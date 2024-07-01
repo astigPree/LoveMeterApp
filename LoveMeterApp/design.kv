@@ -1,0 +1,131 @@
+#:import chex kivy.utils.get_color_from_hex
+
+MainWindow:
+	
+	name : name
+	percentage : percentage
+	progress : progress
+	check : check
+	
+	
+	canvas.before:
+		Rectangle:
+			pos : self.pos
+			size : self.size
+			source : "background.png"
+	
+	Information:
+		pos_hint : { "center_x" : 0.5 , "center_y" : 0.88 }
+		size_hint : 0.78 , 0.07
+	
+	NamePlaceholder:
+		id : name
+		pos_hint : { "center_x" : 0.5 , "center_y" : 0.78 }
+		size_hint : 0.78 , 0.07
+	
+	ProgressPercentage:
+		id : percentage
+		pos_hint : { "center_x" : 0.5 , "center_y" : 0.65 }
+		size_hint : 0.78 , 0.05
+		text : str(progress.bar.size_hint_x  * 100)[:2] + "%"
+	
+	CustomProgressBar:
+		id : progress
+		pos_hint : { "center_x" : 0.5 , "center_y" : 0.58 }
+		size_hint : 0.78 , 0.05
+	
+	
+	CheckLove:
+		id : check
+		pos_hint : { "center_x" : 0.5 , "center_y" : 0.5 }
+		size_hint : 0.55 , 0.07
+		
+		
+
+
+<CheckLove>:
+	background_color : 0,0,0,0
+	background_down : ""
+	
+	text : "Let's Check Your Love"
+	font_size : min(self.size) * 0.4
+	color : "black"
+	font_name : "lobster"
+	
+	canvas.before:
+		Color:
+			rgba : chex("#C8BFF2")
+		RoundedRectangle:
+			pos : self.pos
+			size : self.size
+			radius : (26,)
+
+
+<CustomProgressBar>:
+	bar : bar
+	
+	BoxLayout:
+		pos_hint : { "center_x" : 0.5 , "center_y" : 0.5 }
+		size_hint : 1 , 1
+
+		canvas.before:
+			Color:
+				rgba : chex("#FAB4D5")
+			RoundedRectangle:
+				pos : self.pos
+				size : self.size
+				radius : (60 , )
+	
+	BoxLayout:
+		id : bar
+		pos_hint : { "x" : 0.0 , "center_y" : 0.5 }
+		size_hint : 0.0 , 1
+		
+		canvas:
+			Color:
+				rgba : chex("#FFD9EB")
+			RoundedRectangle:
+				pos : self.pos
+				size : self.size
+				radius : (60 , )
+
+
+<ProgressPercentage>:
+	text : "51%"
+	font_size : min(self.size) * 1.3
+	font_name : "lobster"
+	color : "black"
+
+
+<NamePlaceholder>:
+	name : name
+	
+	canvas.before:
+		Color:
+			rgba : chex("#FAB4D5")
+		RoundedRectangle:
+			pos : self.pos
+			size : self.size
+			radius : (26,)
+	
+	TextInput:
+		id : name
+		pos_hint : { "center_x" : 0.5 , "center_y" : 0.5 }
+		size_hint : 1 , 1
+		background_color : 0,0,0,0
+		font_size : min(self.size) * 0.5
+		font_name : "lobster"
+		color : "black"
+		halign : "center"
+		valign : "center"
+		padding: [ 0 , min(self.size) * 0.2 , 0 , 0]
+		multiline : False
+		hint_text: "Type Here"
+		
+
+<Information>:
+	text : "Type The Name Of Your\nSoulmate"
+	font_size : min(self.size) * 0.45
+	font_name : "lobster"
+	color : "black"
+	halign : "center"
