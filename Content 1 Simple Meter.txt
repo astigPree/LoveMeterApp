@@ -1,0 +1,82 @@
+Topic : Display the image and Creating a App
+
+1. Showcase the intro of the program;
++ Such as showing the result or the program
+Voice Action:
+Hey mga ka-tech lover! Paguusapan natin ngayon, may bago akong pasabog na app na gusto kong i-introduce sa inyo. It's called the Love Meter App!
+
+Imagine mo 'to: ikaw mismo ang gagawa ng app na magche-check ng love compatibility ninyo ng crush mo o ng significant other mo. Astig, 'di ba?
+
+So, sama-sama tayong mag-explore kung paano natin ito gagawin gamit ang Kivy framework sa Python. Exciting, 'di ba? Kaya tara na, let's spread the love! 💖
+Part 1 !
+
+
+2. Tell the topic
++ Creating an App
++ Display the image
+
+Voice action:
+Ngayon, tuloy natin sa ating pag-uusap tungkol sa:
++ Paggawa ng App
++ Paano maglagay ng background image
+
+3. Explain What is happening in fastest way in this program;
++ Explain this;
+
+file : main.py
+```
+from kivy.app import App
+from kivy.uix.floatlayout import FloatLayout
+
+from kivy.lang.builder import Builder
+
+class MainWindow(FloatLayout):
+	pass
+
+class LoveMeterApp(App):
+	
+	def build(self):
+		return Builder.load_file("design.kv")
+LoveMeterApp().run()
+```
+
+Voice Action :
+
+	1. Kinukuha ang pangunahing tools mula sa Kivy - `App` at `FloatLayout`.
+	2. Gumagawa tayo ng window layout gamit ang `FloatLayout`.
+	3. Sinasabihan natin ang Kivy kung paano i-set up ang window gamit ang `MainWindow` class.
+	4. Gumagawa tayo ng application gamit ang `LoveMeterApp`.
+	5. Sinasabi natin sa app na gamitin ang layout na nasa `design.kv`.
+
+
+file : design.kv
+```
+
+MainWindow:
+
+	canvas.before:
+		Rectangle:
+			pos : self.pos
+			size : self.size
+			source : "background.png"
+
+
+```
+Voice Action :
+	1. `MainWindow:` - Ito ang pangalan ng class na ginagamit natin para sa window ng ating application.
+	2. `canvas.before:` - Ito ay isang block sa Kivy language na nagpapahintulot sa atin na magdagdag ng mga drawing commands bago pa man ipakita ang mga widgets sa window.
+	3. `Rectangle:` - Ito ang shape na ginagamit natin para sa background.
+	4. `pos: self.pos` - Ipinapakita ang position ng rectangle, na katulad ng position ng `MainWindow`.
+	5. `size: self.size` - Ipinapakita ang sukat ng rectangle, na katulad ng sukat ng `MainWindow`.
+	6. `source: "background.png"` - Ito ang file na ginagamit natin para sa background, na "background.png" sa kasong ito.
+
+
+4. Show the result of the program;
+Voice Action:
+	1. Sinisimulan natin ang app para mag-run.
+	2. Nagkaroon na tayo ng Application na may background ng image na pinili natin.
+
+5. End the content and make the user hock the ending
+	1. Sa susunod na yugto pag uusapan natin kung paano maglagay ng LABEL sa ating application
+
+

@@ -1,0 +1,117 @@
+Topic : Adding A TextInput for Name of soulmate and designing it
+
+1. Showcase the intro of the program;
++ Such as showing the result or the program
+Voice Action:
+Hey mga ka-tech lover! Paguusapan natin ngayon, may bago akong pasabog na app na gusto kong i-introduce sa inyo. It's called the Love Meter App!
+
+Imagine mo 'to: ikaw mismo ang gagawa ng app na magche-check ng love compatibility ninyo ng crush mo o ng significant other mo. Astig, 'di ba?
+
+2. Tell the topic;
++ Creating A TextInput
++ Positioning The TextInput
++ Sizing The TextInput
++ Designing The TextInput
++ Applying A Font
+
+
+Voice action:
+Ngayon, tuloy natin sa ating pag-uusap tungkol sa:
++ Creating A TextInput
++ Positioning The TextInput
++ Sizing The TextInput
++ Designing The TextInput
++ Applying A Font
+
+
+file : main.py
+```
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.textinput import TextInput
+
+class NamePlaceholder(FloatLayout):
+	name : TextInput= ObjectProperty(None)
+	
+
+```
+Voice Action:
+from kivy.uix.floatlayout import FloatLayout - Nag-import ng FloatLayout mula sa Kivy
+from kivy.uix.textinput import TextInput - Nag-import ng TextInput mula sa Kivy
+class NamePlaceholder(FloatLayout): - Gumawa ng bagong klase na ginagamit ang FloatLayout
+name : TextInput= ObjectProperty(None) - Nagdeklara ng property para sa text input
+
+
+```
+
+	NamePlaceholder:
+		id : name
+		pos_hint : { "center_x" : 0.5 , "center_y" : 0.78 }
+		size_hint : 0.78 , 0.07
+
+
+<NamePlaceholder>:
+	name : name
+	
+	canvas.before:
+		Color:
+			rgba : chex("#FAB4D5")
+		RoundedRectangle:
+			pos : self.pos
+			size : self.size
+			radius : (26,)
+	
+	TextInput:
+		id : name
+		pos_hint : { "center_x" : 0.5 , "center_y" : 0.5 }
+		size_hint : 1 , 1
+		background_color : 0,0,0,0
+		font_size : min(self.size) * 0.5
+		font_name : "lobster"
+		color : "black"
+		halign : "center"
+		valign : "center"
+		padding: [ 0 , min(self.size) * 0.2 , 0 , 0]
+		multiline : False
+		hint_text: "Type Here"
+
+```
+Voice Action:
+NamePlaceholder: - Paggamit ng NamePlaceholder widget
+id : name - Pagbibigay ng ID sa widget
+pos_hint : { "center_x" : 0.5 , "center_y" : 0.78 } - Pagtakda ng posisyon
+size_hint : 0.78 , 0.07 - Pagtakda ng sukat
+
+<NamePlaceholder>: - Pagsisimula ng NamePlaceholder template
+name : name - Pag-uugnay ng name property sa TextInput
+
+canvas.before: - Pagsisimula ng background drawing instructions
+Color: - Pagtakda ng kulay
+rgba : chex("#FAB4D5") - Pagpili ng pink na kulay
+RoundedRectangle: - Pagguhit ng rounded rectangle
+pos : self.pos - Pagtakda ng posisyon
+size : self.size - Pagtakda ng sukat
+radius : (26,) - Pagtakda ng corner radius
+
+TextInput: - Paggamit ng TextInput widget
+id : name - Pagbibigay ng ID sa TextInput
+pos_hint : { "center_x" : 0.5 , "center_y" : 0.5 } - Pagtakda ng posisyon
+size_hint : 1 , 1 - Pagtakda ng sukat
+background_color : 0,0,0,0 - Pagtanggal ng background
+font_size : min(self.size) * 0.5 - Pag-adjust ng font size
+font_name : "lobster" - Pagtakda ng font
+color : "black" - Pagtakda ng text color
+halign : "center" - Pag-center ng text horizontally
+valign : "center" - Pag-center ng text vertically
+padding: [ 0 , min(self.size) * 0.2 , 0 , 0] - Pagtakda ng padding
+multiline : False - Pagtanggal ng multi-line input
+hint_text: "Type Here" - Pagdagdag ng placeholder text
+
+
+4. Show the result of the program
+Voice Action:
+	1. Sinisimulan natin ang app para mag-run.
+	2. Nagkaroon na ng TextInput ang ating application sa tamang position at sukat
+
+5. End the content and make the user hock the ending
+Voice Action:
+	1. Sa susunod na yugto pag uusapan natin kung paano maglagay ng isa pang LABEL sa ating application
